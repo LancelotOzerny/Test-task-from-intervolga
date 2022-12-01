@@ -1,0 +1,38 @@
+* 
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+
+	list-style: none;
+}
+body 
+{
+	line-height: 1.5;
+	font-size: 20px;
+}
+.title 
+{
+	padding: 50px 0;
+}
+.title--center 
+{
+	text-align: center;
+}
+.exercise
+{
+	padding-top: 100px;
+}
+.exercise-title
+{
+	padding-bottom: 30px;
+	font-size: 24px;
+}
+.exercise-input
+{
+	text-indent: 50px;
+}
+.exercise-list li
+{
+	
+}
