@@ -1,5 +1,19 @@
-<?php 
+<?php
+	require("modules/exercise1.php");
 
+	// Задание 1
+	$numbers = Array(0, 1, 2, 3, 42, 5, 6, 727, 8, 9, 10, 12, 14, 22);
+	$insertValue = "<mark><- (Тут была 2)</mark>";
+
+	// Вызываем функцию вставки из exercise1.php
+	ValueInserting($numbers, $insertValue);
+
+	// Вывод на сайт в виде строки
+	$textArray = "";
+	foreach ($numbers as $value) 
+	{
+		$textArray .= strval($value) . " ";
+	}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -24,11 +38,37 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
-					<h2 class="exercise-title title--font24 title--center">Задание номер 1. Алгоритм.</h2>
+					<h2 class="exercise-title title--bold title--center">Задание номер 1. Алгоритм.</h2>
 					<p class="exercise-input">Вставить $a в индексный (простой) массив целых чисел после всех элементов, в которых есть цифра 2. Новый массив создавать нельзя. Использовать функцию array_splice нельзя.</p>
-				
-					<div class="exercise-output">
-						
+					
+					<h2 class="exercise-title title--font24 title--center">Решение:</h2>
+					
+					<div class="exercise-solution">
+						<?php 
+							echo $textArray;
+						?>
+					</div>
+
+					<h2 class="exercise-title title--font24 title--center">Примечания:</h2>
+					
+					<div class="exercise-output">						
+						<p>
+							Вставил элемент после каждого числа, имеющего двойку в одном из разрядов следующим образом:
+						</p>
+
+						<p>	
+							function ValueInserting(&$numbers, $value)
+						</p>
+
+						<p>
+							В этой функции я перебираю все элементы массива и проверяю методом 
+						</p>
+						<p>
+							CheckDigitalTwo(int $number)
+						</p>
+							 имеется  ли в элементе массива цифра 2. Если да, то я вставляю новый элемент в конец (push) и сбрасываю его (тем же перебором до i-го элемента).
+							Таким образом элемент оказывается сразу после числа, в котором содержится 
+						</p>
 					</div>
 				</div>
 			</div>
@@ -37,7 +77,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
-					<h2 class="exercise-title title--font24 title--center">Задание номер 2. Веб.</h2>
+					<h2 class="exercise-title title--bold title--font24 title--center">Задание номер 2. Веб.</h2>
 					<p class="exercise-input">
 						Создать PHP-страницу upload.php с формой загрузки CSV-файла В CSV-файле должны быть 2 столбца: название файла, содержимое. Рядом с файлом upload.php требуется создать папку /upload/ и создать в ней файлы, прочитав CSV-файл.
 						Какие дыры это может создать? Как бороться? Ограничений на функции и возможности PHP нет.
@@ -60,7 +100,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
-					<h2 class="exercise-title title--font24 title--center">Задание номер 3. БД.</h2>
+					<h2 class="exercise-title title--bold title--font24 title--center">Задание номер 3. БД.</h2>
 					<p class="exercise-input">Нарисовать ER-диаграмму БД для записи результатов соревнований бегунов марафона. В БД должны храниться Спортсмены, Соревнования, Результаты (спортсмена по соревнованию) и Список призеров (до 3-х на соревновании).</p>
 				</div>
 			</div>
@@ -69,7 +109,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
-					<h2 class="exercise-title title--font24 title--center">Задание номер 4. SQL.</h2>
+					<h2 class="exercise-title title--bold title--font24 title--center">Задание номер 4. SQL.</h2>
 					<p class="exercise-input">
 						Продолжение предыдущего задания. Напишите SQL-запрос для создания таблицы спортсменов (подберите типы подходящие данных):
 

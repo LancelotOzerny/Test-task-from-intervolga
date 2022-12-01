@@ -26,13 +26,23 @@ body
 .exercise-title
 {
 	padding-bottom: 30px;
+	padding-top: 50px;
 	font-size: 24px;
 }
 .exercise-input
 {
 	text-indent: 50px;
 }
-.exercise-list li
+.exercise-solution
 {
-	
+	font-family: monospace;
+}
+.exercise-output
+{
+	border-left: 4px solid #222;
+	padding-left: 20px;
+}
+.title--bold
+{
+	font-weight: bold;
 }
