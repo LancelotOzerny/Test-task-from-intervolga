@@ -156,10 +156,13 @@
 				
 					<h2 class="exercise-title title--font24 title--center">Решение:</h2>
 					
-					<img class="exercise-image" src="Images/DataBase.png" alt="">
-
-					<h2 class="exercise-title title--font24 title--center">Примечание:</h2>
-					<p>Так как в БД требуется номер паспорта (без серии), то первичный ключ из него делать не стал. Можно было бы сделать первичный ключ на email (не может же быть у двух участников один и тот же email), но он может занимать большое кол-во символов - в некоторых случаях будет не очень удобно работать с ним. Поэтому я и решил добавить ID.</p>
+					<div class="exercise-output">						
+						<img class="exercise-image" src="Images/DataBase.png" alt="">
+					</div>
+						<h2 class="exercise-title title--font24 title--center">Примечание:</h2>
+					<div class="exercise-output">
+						<p>Так как в БД требуется номер паспорта (без серии), то первичный ключ из него делать не стал. Можно было бы сделать первичный ключ на email (не может же быть у двух участников один и тот же email), но он может занимать большое кол-во символов - в некоторых случаях будет не очень удобно работать с ним. Поэтому я и решил добавить ID.</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -190,6 +193,37 @@
 
 						И выберите из БД топ 5 ФИО спортсменов, больше остальных посетивших соревнований (одним SQL-запросом и без вложенных SELECT’ов)
 					</p>
+
+					<div class="exercise-output">						
+						<p>Ни разу не создавал базы данных через PHP. Делал это только через phpMyAdmin, но если вспомнить книгу Бена Форта, то запрос получится следующим (может отличаться в зависимости от типа БД):</p>
+						<p>
+							<pre>
+	CREATE TABLE Maraphone.Sportsmens
+	(
+		"ID" INT(12) NOT NULL AUTO_INCREMENT,
+		"Email" VARCHAR(255) NOT NULL,
+		"Name" VARCHAR(255) NOT NULL,
+		"Phone" INT(10) NOT NULL,
+		"Birthday" DATE(8),
+		"Age" INT(3),
+		"PassportNumber" INT(6),
+		"MiddlePlace" INT(12),
+		"Biogaphy" TEXT(255),
+		"PresentationPath" VARCHAR(255),
+		 PRIMARY KEY('ID'),
+	);
+							</pre>
+						</p>	
+
+						<p>Для выборки 5-ти спортсменов можно сгруппировать результаты по ID спортсменов, отсортировать результаты и выбрать первые 5 записей.
+							<pre>
+	SELECT Sportsmen.Id, COUNT(*) AS competitionsCount 
+	FROM 'Results' GROUP BY Sportsmen.Id
+	ORDER BY competitionsCount
+	LIMIT 5;
+							</pre>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
