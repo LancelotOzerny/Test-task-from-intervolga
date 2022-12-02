@@ -153,6 +153,13 @@
 				<div class="exercise">
 					<h2 class="exercise-title title--bold title--font24 title--center">Задание номер 3. БД.</h2>
 					<p class="exercise-input">Нарисовать ER-диаграмму БД для записи результатов соревнований бегунов марафона. В БД должны храниться Спортсмены, Соревнования, Результаты (спортсмена по соревнованию) и Список призеров (до 3-х на соревновании).</p>
+				
+					<h2 class="exercise-title title--font24 title--center">Решение:</h2>
+					
+					<img class="exercise-image" src="Images/DataBase.png" alt="">
+
+					<h2 class="exercise-title title--font24 title--center">Примечание:</h2>
+					<p>Так как в БД требуется номер паспорта (без серии), то первичный ключ из него делать не стал. Можно было бы сделать первичный ключ на email (не может же быть у двух участников один и тот же email), но он может занимать большое кол-во символов - в некоторых случаях будет не очень удобно работать с ним. Поэтому я и решил добавить ID.</p>
 				</div>
 			</div>
 		</div>
@@ -189,6 +196,6 @@
 	</div>
 </div>
 
-	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>
