@@ -11,17 +11,17 @@ body
 	line-height: 1.5;
 	font-size: 20px;
 }
-.title 
+.page-block	
 {
-	padding: 50px 0;
+	padding: 60px 0;
+}
+.page-block--gray
+{
+	background-color: #eee;
 }
 .title--center 
 {
 	text-align: center;
-}
-.exercise
-{
-	padding-top: 100px;
 }
 .exercise-title
 {
@@ -45,4 +45,25 @@ body
 .title--bold
 {
 	font-weight: bold;
+}
+.exercise-btn
+{
+	display: block;
+	padding: 20px 20px;
+	text-decoration: none;
+}
+.page-form 
+{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 100px;
+}
+.page-form-input[type=submit]
+{
+	width: 300px;
+	padding: 5px 20px;
+	display: block;
+	margin-top: 20px;
 }

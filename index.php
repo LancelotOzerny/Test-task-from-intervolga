@@ -26,6 +26,8 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div class="page-block">
 	<div class="container">
 		<!-- Заголовок страницы -->
 		<div class="row">
@@ -33,8 +35,11 @@
 				<h1 class="title title--center">Тестовое задание для компании ИНТЕРВОЛГА</h1>
 			</div>
 		</div>
-
+	</div>
+</div>
 		<!-- Задания -->
+<div class="page-block page-block--gray">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
@@ -49,7 +54,7 @@
 						?>
 					</div>
 
-					<h2 class="exercise-title title--font24 title--center">Примечания:</h2>
+					<h2 class="exercise-title title--font24 title--center">Примечание:</h2>
 					
 					<div class="exercise-output">						
 						<p>
@@ -73,7 +78,11 @@
 				</div>
 			</div>
 		</div>
-
+	</div>
+</div>
+	
+<div class="page-block">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
@@ -93,10 +102,52 @@
 						</ul>
 					</p>
 					<p class="exercise-input">При загрузке такого файла должны быть созданы /upload/1.txt, /upload/2.log, /upload/3.html (с соответствующим содержимым)</p>
+					
+					<h2 class="exercise-title title--font24 title--center">Решение:</h2>
+					<a href="Upload.php" class="exercise-btn">
+						Перейти к upload.php
+					</a>
+
+					<div class="exercise-output">						
+						<p>
+							<i>"Какие дыры это может создать?"</i>
+						</p>
+						<p>
+							Первая дыра, которая пришла мне в голову - загрузка php скриптов. С этим можно бороться простой проверкой расширения файла (<i>end(explode('.', ...))</i>).
+						</p>
+						<p>
+							Следующим небезопасным моментом может быть создание файлов - в одном из названий может быть указано "../", что позволит подняться на уровень выше. К примеру "../index.php" перезапишет файл index.php заново, с информацией, которая указана в csv файле. Решить это можно с помощью <i>stripos("..\\", ...)</i> которая вернет false если такого не содержится в названии файла и число, если содержится.
+						</p>
+					</div>
+
+					<h2 class="exercise-title title--font24 title--center">Примечание:</h2>
+					
+					<div class="exercise-output">						
+						<p>
+							Каким образом я реализовал считывание и загрузку файла?
+						</p>
+						<p>
+							Для начала написал POST форму с загрузкой файла и настроил самый простой вид страницы.
+						</p>
+
+						<p>После этого начинаю обрабатывать сам файл. Для начала убираю из него теги и передаю его в функцию <i>SaveCsv</i>.</p>
+						<p>В этой функции идет проверка на окончание - если файл csv то работа продолжается. Иначе я возвращаю false. Также я возвращаю false если загрузка файла не удалась. Иначе возвращается true.</p>
+
+						<p>Возвращаемся в основной файл. Здесь идет проверка - если <i>SaveCsv</i> вернул true, то дальше вызывается <i>CreateFilesFromCsv</i>.</p>
+
+						<p>В <i>CreateFilesFromCsv</i> я открываю загруженный файл на считывание и построчно его читаю. Каждую строку разбиваю по знаку запятой. Если в качестве расширения (снова <i>ending</i>) один из скриптовых файлов веба (php, js) то я не создаю его. Не создаю также если в строке имеется последовательность "../" или "..\". Если файл прошел все проверки то он будет создан, а в его содержимое через fwrite будет записано второе значение массива (разделенной по запятым строки).</p>
+
+						<p>И в конце я просто удаляю первоначально загруженный файл</p>
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
+
+<div class="page-block page-block--gray">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
@@ -105,7 +156,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
 
+<div class="page-block">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="exercise">
@@ -132,6 +187,8 @@
 			</div>
 		</div>
 	</div>
+</div>
+
 	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 </html>
